@@ -1,5 +1,5 @@
 window.QUIZ_DATA = {
-  updated: "2026-10-05",
+  updated: "2026-10-08",
   subjects: [
     {
       id: "chi",
@@ -113,6 +113,20 @@ window.QUIZ_DATA = {
             {q:"What does she do after school?", options:["Homework and reading","Swimming","Shopping"], a:0, why:"Homework and a story."},
             {q:"Amy gets up at seven. This happens ____.", options:["every morning in the story","only on Sunday","at night"], a:0, why:"It is her daily routine."},
             {q:"Which word means 功課?", options:["homework","breakfast","playground"], a:0, why:"Homework is 功課."}
+          ]
+        },
+        {
+          id: "eng-school",
+          title: "At school",
+          questions: [
+            {q:"I sit on a ____ in the classroom.", options:["banana","chair","cloud"], a:1, why:"We sit on a chair."},
+            {q:"The teacher writes on the ____.", options:["pillow","fridge","blackboard"], a:2, why:"Teachers write on the blackboard (or whiteboard)."},
+            {q:"We put our books in a ____.", options:["schoolbag","teapot","ladder"], a:0, why:"Books go in a schoolbag."},
+            {q:"At recess we can ____ with friends.", options:["drive a car","play","fly a plane"], a:1, why:"Recess is for playing and resting."},
+            {q:"Please ____ your hand before you speak.", options:["eat","kick","raise"], a:2, why:"We raise our hand to speak in class."},
+            {q:"There ____ twenty children in our class.", options:["are","is","am"], a:0, why:"Twenty children: use are."},
+            {q:"She ____ English every Monday.", options:["learn","learns","learning"], a:1, why:"She + learns (simple present)."},
+            {q:"Which one do we use to colour a picture?", options:["ruler only","umbrella","crayon"], a:2, why:"A crayon is for colouring."}
           ]
         }
       ]
@@ -229,6 +243,20 @@ window.QUIZ_DATA = {
             {q:"颱風襲港時應該？", options:["留在安全的室內","去海邊看浪","爬上高處"], a:0, why:"留在室內安全地方。"},
             {q:"夜晚應該有足夠的？", options:["睡眠","糖果","電視"], a:0, why:"小朋友需要足夠睡眠。"},
             {q:"刷牙最好？", options:["早晚都刷","一個月一次","只在過年刷"], a:0, why:"早晚刷牙。"}
+          ]
+        },
+        {
+          id: "gs-plants",
+          title: "植物與動物",
+          questions: [
+            {q:"植物生長通常需要什麼？", options:["只有玩具","陽光、空氣和水","只有糖果"], a:1, why:"植物需要陽光、空氣和水才能生長。"},
+            {q:"哪一部分幫助植物從泥土吸收水分？", options:["花瓣","果皮","根"], a:2, why:"根從泥土吸收水分和養分。"},
+            {q:"葉子有什麼重要作用？", options:["利用陽光幫助植物製造養分","讓動物睡覺","發出聲音"], a:0, why:"葉子利用陽光幫助植物製造養分。"},
+            {q:"哪一種是哺乳動物？", options:["麻雀","狗","金魚"], a:1, why:"狗是哺乳動物；麻雀是鳥類，金魚是魚類。"},
+            {q:"蝴蝶通常是由什麼變成的？", options:["石頭","樹葉","毛蟲"], a:2, why:"毛蟲長大後會變成蝴蝶。"},
+            {q:"哪一種動物主要住在水裏？", options:["魚","麻雀","兔子"], a:0, why:"魚生活在水中。"},
+            {q:"種子發芽後可以長成？", options:["汽車","新的植物","衣服"], a:1, why:"種子發芽後會長成新植物。"},
+            {q:"愛護動植物，我們應該？", options:["把垃圾扔到花圃","天天拔花玩","不隨意傷害它們，保持環境清潔"], a:2, why:"要保護動植物和它們的生活環境。"}
           ]
         }
       ]
