@@ -28,7 +28,6 @@ function home() {
       <div class="pill">最新題目 ${data.updated}</div>
     </div>
     <div class="grid">${cards}</div>
-    <p class="note">給家長：這是練習網站，不是學校正式試卷。程度參考香港真光中學附屬小學暨幼稚園小二上學期（上等偏下）。題目會不定期更新。</p>
   `);
   app.querySelectorAll("[data-subject]").forEach(b => {
     b.onclick = () => { state = { view: "subject", subject: b.dataset.subject }; render(); };
