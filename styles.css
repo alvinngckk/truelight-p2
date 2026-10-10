@@ -434,6 +434,11 @@ button, .card { font-family: inherit; }
 .times-tile.fruit { background: linear-gradient(180deg, #ffe4c4, #ffb074); }
 .times-tile.hand { background: linear-gradient(180deg, #d4f5e4, #9be7bf); }
 .times-tile.target { background: linear-gradient(180deg, #dcebff, #9ec5ff); }
+
+.times-tile.bee { background: linear-gradient(180deg, #fff7c2, #ffd666); }
+.times-tile.rainbow { background: linear-gradient(180deg, #e8d4ff, #c9a0ff); }
+.times-tile.octopus { background: linear-gradient(180deg, #ffd6e8, #ff9ec8); }
+.times-tile.balloon { background: linear-gradient(180deg, #d6f3ff, #8fd6ff); }
 .times-tile.trophy { background: linear-gradient(180deg, #ffe8f0, #ff9ec6); grid-column: 1 / -1; }
 .times-q-badge {
   display: inline-block;
