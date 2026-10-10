@@ -168,6 +168,46 @@ function getTimesZone() {
   return (data.specials || []).find(s => s.id === "times");
 }
 
+function shuffleInPlace(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function shuffleOptions(item) {
+  const pairs = item.options.map((o, i) => ({ o, correct: i === item.a }));
+  shuffleInPlace(pairs);
+  return {
+    q: item.q,
+    why: item.why,
+    options: pairs.map(p => p.o),
+    a: pairs.findIndex(p => p.correct)
+  };
+}
+
+function buildTimesQuiz(table) {
+  const pool = (table.questions || []).map(q => ({
+    q: q.q,
+    why: q.why,
+    options: q.options.slice(),
+    a: q.a
+  }));
+  shuffleInPlace(pool);
+  const n = table.pick || pool.length;
+  const picked = pool.slice(0, Math.min(n, pool.length)).map(shuffleOptions);
+  return {
+    id: table.id,
+    title: table.title,
+    badge: table.badge,
+    color: table.color,
+    questions: picked
+  };
+}
+
+
+
 function home() {
   const cards = data.subjects.map(s => `
     <button class="card ${s.id}" data-subject="${s.id}">
@@ -219,12 +259,17 @@ function home() {
 function timesView() {
   const times = getTimesZone();
   if (!times) { state = { view: "home" }; render(); return; }
-  const tiles = times.tables.map(t => `
+  const tiles = times.tables.map(t => {
+    const countLabel = t.pick
+      ? `每次 ${t.pick} 題 · 隨機`
+      : `${t.questions.length} 題 · 隨機`;
+    return `
     <button class="times-tile ${t.color || ""}" data-table="${t.id}" type="button">
       <span class="times-badge">${t.badge || "⭐"}</span>
       <span class="times-tile-title">${t.title}</span>
-      <span class="times-tile-count">${t.questions.length} 題</span>
-    </button>`).join("");
+      <span class="times-tile-count">${countLabel}</span>
+    </button>`;
+  }).join("");
   el(`
     <button class="back" id="back">← 返回</button>
     <div class="times-lobby">
@@ -238,7 +283,7 @@ function timesView() {
       <div class="times-stickers" aria-hidden="true">
         <span>⭐</span><span>🚀</span><span>🍊</span><span>🌟</span><span>🏆</span>
       </div>
-      <p class="times-pick">揀一組乘數表，開始挑戰！</p>
+      <p class="times-pick">揀一組乘數表，開始挑戰！每次題目同選項都會隨機唔同。</p>
       <div class="times-grid">${tiles}</div>
     </div>
   `);
@@ -250,7 +295,8 @@ function timesView() {
         view: "quiz",
         subject: null,
         special: "times",
-        quiz: table,
+        tableId: table.id,
+        quiz: buildTimesQuiz(table),
         i: 0,
         score: 0,
         picked: null,
@@ -379,6 +425,11 @@ function resultView() {
     </div>
   `);
   document.getElementById("again").onclick = () => {
+    if (state.special === "times" && state.tableId) {
+      const times = getTimesZone();
+      const table = times && times.tables.find(t => t.id === state.tableId);
+      if (table) state.quiz = buildTimesQuiz(table);
+    }
     state.i = 0; state.score = 0; state.picked = null; state.review = []; state.view = "quiz";
     render();
   };
