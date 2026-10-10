@@ -294,3 +294,174 @@ button, .card { font-family: inherit; }
 }
 .review-item:last-child { border-bottom: 0; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 8px; }
+
+/* ---- 單位乘數樂園 ---- */
+.times-banner {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0 14px;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 24px;
+  cursor: pointer;
+  text-align: left;
+  color: #2b241c;
+  background: linear-gradient(135deg, #fff3c4 0%, #ffd6e8 45%, #d4f0ff 100%);
+  box-shadow: 0 8px 0 #f0b8d0, 0 12px 24px #ffb3d033;
+  overflow: hidden;
+  transition: transform 0.12s ease;
+}
+.times-banner:hover { transform: translateY(-2px); }
+.times-banner:active { transform: translateY(3px); box-shadow: 0 4px 0 #f0b8d0; }
+.times-banner-glow {
+  position: absolute;
+  inset: -40% -20%;
+  background:
+    radial-gradient(circle at 20% 40%, #fff8 0%, transparent 45%),
+    radial-gradient(circle at 80% 30%, #fffb7033 0%, transparent 40%);
+  pointer-events: none;
+  animation: shimmer 3.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%, 100% { opacity: 0.55; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(8px); }
+}
+.times-banner-left { position: relative; z-index: 1; flex-shrink: 0; }
+.times-mascot {
+  width: 110px;
+  height: 94px;
+  display: block;
+  filter: drop-shadow(0 3px 0 #f0b8d088);
+}
+.times-banner-body {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+}
+.times-chip {
+  display: inline-block;
+  background: #fff;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #c44f7a;
+  margin-bottom: 4px;
+  box-shadow: 0 2px 0 #f0b8d0;
+}
+.times-banner-body h2 {
+  margin: 0 0 2px;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+.times-tagline {
+  margin: 0;
+  color: #6d5b48;
+  font-size: 0.95rem;
+}
+.times-cta {
+  margin: 6px 0 0;
+  font-weight: 700;
+  color: #e15b64;
+  font-size: 0.95rem;
+}
+.times-banner-arrow {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #c44f7a;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.times-lobby-hero {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.times-lobby-hero h1 { margin: 0; font-size: 1.55rem; }
+.times-stickers {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin: 6px 0 10px;
+  animation: bob 2.8s ease-in-out infinite;
+}
+.times-pick {
+  text-align: center;
+  color: var(--soft);
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+.times-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.times-tile {
+  border: 3px solid #fff;
+  border-radius: 20px;
+  padding: 16px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 6px 0 #e8c4d8;
+  transition: transform 0.12s ease;
+  font-family: inherit;
+  color: var(--ink);
+}
+.times-tile:hover { transform: translateY(-2px); }
+.times-tile:active { transform: translateY(2px); box-shadow: 0 3px 0 #e8c4d8; }
+.times-badge { font-size: 1.8rem; line-height: 1; }
+.times-tile-title { font-size: 1.1rem; font-weight: 700; }
+.times-tile-count {
+  background: rgba(255,255,255,0.7);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.85rem;
+  color: var(--soft);
+}
+.times-tile.rocket { background: linear-gradient(180deg, #ffe0c8, #ffc4a8); }
+.times-tile.star { background: linear-gradient(180deg, #fff3b0, #ffe066); }
+.times-tile.fruit { background: linear-gradient(180deg, #ffe4c4, #ffb074); }
+.times-tile.hand { background: linear-gradient(180deg, #d4f5e4, #9be7bf); }
+.times-tile.target { background: linear-gradient(180deg, #dcebff, #9ec5ff); }
+.times-tile.trophy { background: linear-gradient(180deg, #ffe8f0, #ff9ec6); grid-column: 1 / -1; }
+.times-q-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, #ffe066, #ff9ec6);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.qbox-times {
+  border-color: #ff9ec6;
+  box-shadow: 0 6px 0 #f0b8d0;
+}
+.sticker-prize {
+  background: linear-gradient(90deg, #fff3b0, #ffd6e8);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #c44f7a;
+  box-shadow: 0 3px 0 #f0b8d0;
+}
+@media (max-width: 640px) {
+  .times-mascot { width: 88px; height: 76px; }
+  .times-banner { padding: 12px; gap: 8px; }
+  .times-banner-body h2 { font-size: 1.25rem; }
+  .times-banner-arrow { font-size: 1.6rem; }
+  .times-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .times-tile.trophy { grid-column: 1 / -1; }
+}

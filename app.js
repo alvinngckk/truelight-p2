@@ -53,6 +53,39 @@ function celebrateMascot() {
   </svg>`;
 }
 
+function timesMascot() {
+  return `<svg class="times-mascot mascot-float" viewBox="0 0 140 120" role="img" aria-label="乘數小勇士火箭公仔">
+    <defs>
+      <linearGradient id="rocketBody" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ff8a4c"/>
+        <stop offset="100%" stop-color="#ff5c7a"/>
+      </linearGradient>
+    </defs>
+    <!-- rocket -->
+    <ellipse cx="52" cy="28" rx="14" ry="18" fill="url(#rocketBody)"/>
+    <rect x="38" y="28" width="28" height="42" rx="10" fill="url(#rocketBody)"/>
+    <circle cx="52" cy="44" r="8" fill="#dff0ff" stroke="#fff" stroke-width="2"/>
+    <path d="M38 55l-12 18h12z" fill="#7c5cff"/>
+    <path d="M66 55l12 18H66z" fill="#7c5cff"/>
+    <path d="M44 70c2 10 6 16 8 18 2-2 6-8 8-18z" fill="#ffb703"/>
+    <path d="M48 72c1.5 7 3.5 11 4 12 0.5-1 2.5-5 4-12z" fill="#fff3bf"/>
+    <!-- buddy face -->
+    <circle cx="98" cy="58" r="28" fill="#FFE8B8"/>
+    <circle cx="88" cy="52" r="5" fill="#2b241c"/>
+    <circle cx="108" cy="52" r="5" fill="#2b241c"/>
+    <circle cx="90" cy="50" r="1.8" fill="#fff"/>
+    <circle cx="110" cy="50" r="1.8" fill="#fff"/>
+    <path d="M90 66c5 7 15 7 20 0" fill="none" stroke="#e15b64" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="80" cy="62" rx="5" ry="3.5" fill="#ff9eb5" opacity=".75"/>
+    <ellipse cx="116" cy="62" rx="5" ry="3.5" fill="#ff9eb5" opacity=".75"/>
+    <!-- stars -->
+    <circle cx="18" cy="22" r="5" fill="#ffb703"/>
+    <circle cx="122" cy="20" r="4" fill="#3aa0ff"/>
+    <circle cx="128" cy="48" r="3.5" fill="#2fbf71"/>
+    <text x="52" y="24" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="sans-serif">×</text>
+  </svg>`;
+}
+
 function subjectIcon(id) {
   if (id === "chi") {
     return `<svg class="subj-icon" viewBox="0 0 64 64" aria-hidden="true">
@@ -99,7 +132,6 @@ function subjectIcon(id) {
 }
 
 function quizBuddy(mood) {
-  // mood: idle | happy | encourage
   const mouth = mood === "happy"
     ? `<path d="M48 74c7 11 25 11 32 0" fill="none" stroke="#e15b64" stroke-width="3.5" stroke-linecap="round"/>`
     : mood === "encourage"
@@ -132,6 +164,10 @@ function decoStars() {
   return `<div class="deco-row" aria-hidden="true">${svgStar("#ffb703")}${svgStar("#ff8a4c")}${svgStar("#3aa0ff")}${svgStar("#7c5cff")}${svgStar("#2fbf71")}</div>`;
 }
 
+function getTimesZone() {
+  return (data.specials || []).find(s => s.id === "times");
+}
+
 function home() {
   const cards = data.subjects.map(s => `
     <button class="card ${s.id}" data-subject="${s.id}">
@@ -141,6 +177,23 @@ function home() {
         <p>${s.blurb}</p>
       </div>
     </button>`).join("");
+
+  const times = getTimesZone();
+  const timesBanner = times ? `
+    <button class="times-banner" id="timesZone" type="button">
+      <div class="times-banner-glow" aria-hidden="true"></div>
+      <div class="times-banner-left">
+        ${timesMascot()}
+      </div>
+      <div class="times-banner-body">
+        <div class="times-chip">專區 · 迷你遊戲</div>
+        <h2>${times.name}</h2>
+        <p class="times-tagline">${times.tagline || times.blurb}</p>
+        <p class="times-cta">撳入嚟揀乘數表 ✨ 有星星貼紙獎</p>
+      </div>
+      <div class="times-banner-arrow" aria-hidden="true">›</div>
+    </button>` : "";
+
   el(`
     <div class="top">
       <div class="hero">
@@ -152,11 +205,60 @@ function home() {
       </div>
       <div class="pill">最新題目 ${data.updated}</div>
     </div>
+    ${timesBanner}
     ${decoStars()}
     <div class="grid">${cards}</div>
   `);
+  const tz = document.getElementById("timesZone");
+  if (tz) tz.onclick = () => { state = { view: "times" }; render(); };
   app.querySelectorAll("[data-subject]").forEach(b => {
     b.onclick = () => { state = { view: "subject", subject: b.dataset.subject }; render(); };
+  });
+}
+
+function timesView() {
+  const times = getTimesZone();
+  if (!times) { state = { view: "home" }; render(); return; }
+  const tiles = times.tables.map(t => `
+    <button class="times-tile ${t.color || ""}" data-table="${t.id}" type="button">
+      <span class="times-badge">${t.badge || "⭐"}</span>
+      <span class="times-tile-title">${t.title}</span>
+      <span class="times-tile-count">${t.questions.length} 題</span>
+    </button>`).join("");
+  el(`
+    <button class="back" id="back">← 返回</button>
+    <div class="times-lobby">
+      <div class="times-lobby-hero">
+        ${timesMascot()}
+        <div>
+          <h1>${times.name}</h1>
+          <p class="sub">${times.blurb}</p>
+        </div>
+      </div>
+      <div class="times-stickers" aria-hidden="true">
+        <span>⭐</span><span>🚀</span><span>🍊</span><span>🌟</span><span>🏆</span>
+      </div>
+      <p class="times-pick">揀一組乘數表，開始挑戰！</p>
+      <div class="times-grid">${tiles}</div>
+    </div>
+  `);
+  document.getElementById("back").onclick = () => { state = { view: "home" }; render(); };
+  app.querySelectorAll("[data-table]").forEach(b => {
+    b.onclick = () => {
+      const table = times.tables.find(t => t.id === b.dataset.table);
+      state = {
+        view: "quiz",
+        subject: null,
+        special: "times",
+        quiz: table,
+        i: 0,
+        score: 0,
+        picked: null,
+        done: false,
+        review: []
+      };
+      render();
+    };
   });
 }
 
@@ -181,10 +283,15 @@ function subjectView() {
   app.querySelectorAll("[data-quiz]").forEach(b => {
     b.onclick = () => {
       const quiz = s.quizzes.find(q => q.id === b.dataset.quiz);
-      state = { view: "quiz", subject: s.id, quiz, i: 0, score: 0, picked: null, done: false, review: [] };
+      state = { view: "quiz", subject: s.id, special: null, quiz, i: 0, score: 0, picked: null, done: false, review: [] };
       render();
     };
   });
+}
+
+function quizBackTarget() {
+  if (state.special === "times") return () => { state = { view: "times" }; render(); };
+  return () => { state = { view: "subject", subject: state.subject }; render(); };
 }
 
 function quizView() {
@@ -204,14 +311,18 @@ function quizView() {
   const feedback = picked === null ? "" : `
     <div class="why">${picked===item.a?"答對了！真棒！":"差一點，下次加油！"} ${item.why}</div>
     <button class="next" id="next">${i+1===quiz.questions.length?"看成績":"下一題"}</button>`;
+  const headExtra = state.special === "times"
+    ? `<span class="times-q-badge">${quiz.badge || "⭐"} ${quiz.title}</span>`
+    : "";
   el(`
     <button class="back" id="back">← 離開</button>
     <div class="quiz-head">
       <h1>${quiz.title}</h1>
       ${quizBuddy(mood)}
     </div>
+    ${headExtra}
     <div class="progress"><div class="bar" style="width:${pct}%"></div></div>
-    <div class="qbox">
+    <div class="qbox ${state.special === "times" ? "qbox-times" : ""}">
       <div class="q-meta"><span>第 ${i+1} / ${quiz.questions.length} 題</span><span class="sparkle">✨</span></div>
       ${passage}
       <h2>${item.q}</h2>
@@ -219,7 +330,7 @@ function quizView() {
       ${feedback}
     </div>
   `);
-  document.getElementById("back").onclick = () => { state = { view: "subject", subject: state.subject }; render(); };
+  document.getElementById("back").onclick = quizBackTarget();
   app.querySelectorAll(".opt").forEach(b => {
     b.onclick = () => {
       if (state.picked !== null) return;
@@ -245,19 +356,24 @@ function resultView() {
   const rows = review.map((r, n) => `
     <div class="review-item">${n+1}. ${r.ok?"✅":"❌"} ${r.q}<br>正確答案：${r.correct}</div>`).join("");
   const msg = score / total >= 0.9 ? "太厲害了！" : score / total >= 0.7 ? "做得很好！" : score / total >= 0.5 ? "繼續加油！" : "再試一次，你會更棒！";
+  const sticker = state.special === "times"
+    ? `<div class="sticker-prize">${score / total >= 0.7 ? "🏅 贏得星星貼紙！" : "💫 再試一次攞貼紙！"}</div>`
+    : "";
+  const homeOrTimesLabel = state.special === "times" ? "回乘數樂園" : "回主頁";
   el(`
-    <div class="qbox">
+    <div class="qbox ${state.special === "times" ? "qbox-times" : ""}">
       <div class="result-hero">
         ${celebrateMascot()}
         <h1>完成！</h1>
         <div class="stars">${stars(score, total)}</div>
+        ${sticker}
         <h2>${score} / ${total}</h2>
         <p>${quiz.title} · ${msg}</p>
       </div>
       ${decoStars()}
       <div class="btn-row">
         <button class="next" id="again">再做一次</button>
-        <button class="back" id="home">回主頁</button>
+        <button class="back" id="home">${homeOrTimesLabel}</button>
       </div>
       <div class="why">${rows}</div>
     </div>
@@ -266,11 +382,16 @@ function resultView() {
     state.i = 0; state.score = 0; state.picked = null; state.review = []; state.view = "quiz";
     render();
   };
-  document.getElementById("home").onclick = () => { state = { view: "home" }; render(); };
+  document.getElementById("home").onclick = () => {
+    if (state.special === "times") state = { view: "times" };
+    else state = { view: "home" };
+    render();
+  };
 }
 
 function render() {
   if (state.view === "home") home();
+  else if (state.view === "times") timesView();
   else if (state.view === "subject") subjectView();
   else if (state.view === "quiz") quizView();
   else resultView();
