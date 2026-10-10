@@ -171,38 +171,117 @@ function getTimesZone() {
 function shuffleInPlace(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+    const tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
   }
   return arr;
 }
 
 function shuffleOptions(item) {
-  const pairs = item.options.map((o, i) => ({ o, correct: i === item.a }));
+  const pairs = item.options.map((o, i) => ({ o: o, correct: i === item.a }));
   shuffleInPlace(pairs);
   return {
     q: item.q,
     why: item.why,
-    options: pairs.map(p => p.o),
-    a: pairs.findIndex(p => p.correct)
+    options: pairs.map(function(p) { return p.o; }),
+    a: pairs.findIndex(function(p) { return p.correct; })
   };
 }
 
+function uniqueDistractors(correct, makeWrong) {
+  const opts = [correct];
+  let guard = 0;
+  while (opts.length < 3 && guard < 40) {
+    guard += 1;
+    const w = makeWrong();
+    if (w !== correct && opts.indexOf(w) === -1 && w > 0) opts.push(w);
+  }
+  while (opts.length < 3) opts.push(correct + opts.length);
+  return opts;
+}
+
+function makeMulQuestion(a, b) {
+  const correct = a * b;
+  const options = uniqueDistractors(correct, function() {
+    const kinds = [
+      a + b,
+      a * (b + 1),
+      a * Math.max(1, b - 1),
+      (a + 1) * b,
+      Math.max(1, a - 1) * b,
+      correct + a,
+      correct - a,
+      correct + 2,
+      correct - 2
+    ];
+    return kinds[Math.floor(Math.random() * kinds.length)];
+  });
+  const item = {
+    q: a + " × " + b + " = ?",
+    why: b + " 個 " + a + " 是 " + correct + "。",
+    options: options,
+    a: 0
+  };
+  return shuffleOptions(item);
+}
+
+function makeWordMulQuestion(a, b) {
+  const correct = a * b;
+  const templates = [
+    { q: "每袋有 " + a + " 個，" + b + " 袋一共有幾個？", why: a + "×" + b + "=" + correct + "。" },
+    { q: "「" + b + " 個 " + a + "」等於？", why: b + " 個 " + a + " = " + a + "×" + b + " = " + correct + "。" },
+    { q: "每組有 " + a + " 人，" + b + " 組一共有幾人？", why: a + "×" + b + "=" + correct + "。" }
+  ];
+  const t = templates[Math.floor(Math.random() * templates.length)];
+  const options = uniqueDistractors(correct, function() {
+    const kinds = [a + b, a * (b + 1), (a + 1) * b, correct + a, correct - b, a * b + 1];
+    return kinds[Math.floor(Math.random() * kinds.length)];
+  });
+  return shuffleOptions({ q: t.q, why: t.why, options: options, a: 0 });
+}
+
+function generateMixQuestions(count) {
+  const factors = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const seen = {};
+  const out = [];
+  let guard = 0;
+  while (out.length < count && guard < 200) {
+    guard += 1;
+    const a = factors[Math.floor(Math.random() * factors.length)];
+    const b = 2 + Math.floor(Math.random() * 8); // 2..9
+    const key = a + "x" + b;
+    if (seen[key]) continue;
+    seen[key] = true;
+    if (Math.random() < 0.3) out.push(makeWordMulQuestion(a, b));
+    else out.push(makeMulQuestion(a, b));
+  }
+  while (out.length < count) {
+    out.push(makeMulQuestion(2 + (out.length % 9), 2 + (out.length % 8)));
+  }
+  shuffleInPlace(out);
+  return out;
+}
+
 function buildTimesQuiz(table) {
-  const pool = (table.questions || []).map(q => ({
-    q: q.q,
-    why: q.why,
-    options: q.options.slice(),
-    a: q.a
-  }));
-  shuffleInPlace(pool);
-  const n = table.pick || pool.length;
-  const picked = pool.slice(0, Math.min(n, pool.length)).map(shuffleOptions);
+  let questions;
+  if (table.id === "times-mix") {
+    questions = generateMixQuestions(table.pick || 10);
+  } else {
+    const pool = (table.questions || []).map(function(q) {
+      return { q: q.q, why: q.why, options: q.options.slice(), a: q.a };
+    });
+    shuffleInPlace(pool);
+    const n = table.pick || pool.length;
+    questions = pool.slice(0, Math.min(n, pool.length)).map(shuffleOptions);
+  }
   return {
     id: table.id,
     title: table.title,
     badge: table.badge,
     color: table.color,
-    questions: picked
+    questions: questions,
+    roundId: Date.now() + "-" + Math.floor(Math.random() * 100000)
   };
 }
 
@@ -358,7 +437,7 @@ function quizView() {
     <div class="why">${picked===item.a?"答對了！真棒！":"差一點，下次加油！"} ${item.why}</div>
     <button class="next" id="next">${i+1===quiz.questions.length?"看成績":"下一題"}</button>`;
   const headExtra = state.special === "times"
-    ? `<span class="times-q-badge">${quiz.badge || "⭐"} ${quiz.title}</span>`
+    ? `<span class="times-q-badge">${quiz.badge || "⭐"} ${quiz.title}${quiz.id === "times-mix" ? " · 本輪隨機" : " · 次序已打亂"}</span>`
     : "";
   el(`
     <button class="back" id="back">← 離開</button>
