@@ -1,5 +1,5 @@
 window.QUIZ_DATA = {
-  updated: "2026-10-12",
+  updated: "2026-10-15",
   subjects: [
     {
       id: "chi",
@@ -141,6 +141,20 @@ window.QUIZ_DATA = {
             {q:"Which one do we use to colour a picture?", options:["ruler only","umbrella","crayon"], a:2, why:"A crayon is for colouring."},
             {q:"Choose the best classroom rule:", options:["Run and shout in the library.","Listen when the teacher talks.","Throw books on the floor."], a:1, why:"We should listen to the teacher."},
             {q:"A ____ helps us draw straight lines.", options:["crayon","ruler","schoolbag"], a:1, why:"A ruler draws straight lines."}
+          ]
+        },
+        {
+          id: "eng-daily",
+          title: "My day",
+          questions: [
+            {q:"Little Bunny wakes up at seven. He ____ his face, then eats breakfast.", options:["washes","wash","washing"], a:0, why:"He + washes (present simple)."},
+            {q:"In the morning I go to school. At night I ____ to bed.", options:["go","goes","going"], a:0, why:"I + go."},
+            {q:"Momo the cat has milk ____ breakfast and rice ____ dinner.", options:["for / for","to / to","at / on"], a:0, why:"We say for breakfast / for dinner."},
+            {q:"We have recess ____ the morning. We sleep ____ night.", options:["in / at","at / in","on / on"], a:0, why:"in the morning; at night."},
+            {q:"First I put on my shoes. ____ I walk to the bus stop.", options:["Then","Never","Because"], a:0, why:"Then shows the next step."},
+            {q:"Which meal do we usually eat at noon?", options:["breakfast","lunch","bedtime snack only"], a:1, why:"Lunch is the midday meal."},
+            {q:"Choose the odd one out (not a daily routine):", options:["brush my teeth","do my homework","fly to the moon"], a:2, why:"Flying to the moon is not a daily routine."},
+            {q:"Amy: \"I tidy my desk after school.\" What does she do after school?", options:["She tidies her desk.","She never comes home.","She only watches TV all day."], a:0, why:"She says she tidies her desk after school."}
           ]
         }
       ]
@@ -285,6 +299,20 @@ window.QUIZ_DATA = {
             {q:"愛護動植物，我們應該？", options:["把垃圾扔到花圃","天天拔花玩","不隨意傷害它們，保持環境清潔"], a:2, why:"要保護動植物和環境。"},
             {q:"為什麼很多植物的葉子是綠色的？", options:["因為葉子含有幫助吸收陽光的物質","因為葉子都是塑料做的","因為動物把葉子塗成綠色"], a:0, why:"綠色葉子含有幫助進行光合作用的物質（小二程度：幫助吸收陽光製造養分）。"},
             {q:"貓、狗、人同屬？金魚較接近？", options:["鳥類；昆蟲","哺乳動物；魚類","昆蟲；哺乳動物"], a:1, why:"貓狗人是哺乳動物；金魚是魚類。"}
+          ]
+        },
+        {
+          id: "gs-food",
+          title: "飲食與健康",
+          questions: [
+            {q:"均衡飲食是指什麼？", options:["每天只吃喜歡的甜食","每天適量進食不同種類的食物","整天都不喝水"], a:1, why:"均衡飲食要多樣、適量。"},
+            {q:"哪一組食物較能提供成長所需的營養？", options:["蔬菜、水果、五穀、適量肉類或豆類","只有薯片和汽水","只有糖果和蛋糕"], a:0, why:"蔬果、五穀和適量蛋白質較健康。"},
+            {q:"飯前應該怎樣？進食時較好的做法是？", options:["洗手；細嚼慢嚥、專心吃飯","不洗手；邊跑邊吃","用髒手拿食物；大聲叫喊"], a:0, why:"飯前洗手；專心細嚼較安全又健康。"},
+            {q:"多喝清水有什麼好處？哪一種飲品應少喝？", options:["幫助身體運作；高糖汽水","令牙齒更快蛀壞；白開水","沒有用；只有果汁才健康"], a:0, why:"清水重要；高糖飲品應少喝。"},
+            {q:"吃得過鹹、過甜，長遠較可能？", options:["對身體健康較不利","功課會自動變好","一定會長得更高"], a:0, why:"過鹹過甜不利健康。"},
+            {q:"哪一項是良好的飲食習慣？", options:["不吃早餐就上學","定時進食，不暴飲暴食","把全部剩菜倒進下水道玩"], a:1, why:"定時、適量進食較好。"},
+            {q:"愛惜食物，我們應該？", options:["按需要取餐，能吃完的才拿","故意把飯菜掉滿地","只揀最貴的，其餘丟掉"], a:0, why:"按需要取餐，減少浪費。"},
+            {q:"下面哪一組做法都有助健康飲食？", options:["多吃蔬果、少吃油炸零食、充足喝水","只吃炸雞、不吃菜、不喝水","用飲料代替所有正餐"], a:0, why:"蔬果、少油炸和充足喝水都有助健康。"}
           ]
         }
       ]
