@@ -1,5 +1,5 @@
 window.QUIZ_DATA = {
-  updated: "2026-10-19",
+  updated: "2026-10-22",
   subjects: [
     {
       id: "chi",
@@ -169,6 +169,20 @@ window.QUIZ_DATA = {
             {q:"Which meal do we usually eat at noon?", options:["breakfast","lunch","bedtime snack only"], a:1, why:"Lunch is the midday meal."},
             {q:"Choose the odd one out (not a daily routine):", options:["brush my teeth","do my homework","fly to the moon"], a:2, why:"Flying to the moon is not a daily routine."},
             {q:"Amy: \"I tidy my desk after school.\" What does she do after school?", options:["She tidies her desk.","She never comes home.","She only watches TV all day."], a:0, why:"She says she tidies her desk after school."}
+          ]
+        },
+        {
+          id: "eng-family",
+          title: "My family",
+          questions: [
+            {q:"My father's mother is my ____.", options:["grandmother","sister","aunt"], a:0, why:"Your father's mother is your grandmother."},
+            {q:"Tom has a baby sister. ____ name is Lily.", options:["Her","His","Their"], a:0, why:"We use Her for a girl."},
+            {q:"Panda Pip ____ two brothers and one sister.", options:["has","have","having"], a:0, why:"He / Pip + has."},
+            {q:"\"Who is this?\" \"____ my uncle.\"", options:["He's","She's","They're"], a:0, why:"An uncle is a man, so He's."},
+            {q:"There ____ five people in my family.", options:["are","is","am"], a:0, why:"five people = more than one, so are."},
+            {q:"My mum cooks dinner. My dad ____ the dishes.", options:["washes","wash","washing"], a:0, why:"My dad + washes (present simple)."},
+            {q:"Choose the odd one out (not a family member):", options:["cousin","brother","teacher"], a:2, why:"A teacher is not a family member."},
+            {q:"Ben: \"I play chess with my grandpa on Sundays.\" When does Ben play chess?", options:["On Sundays.","Every morning.","Never."], a:0, why:"He says he plays on Sundays."}
           ]
         }
       ]
@@ -341,6 +355,20 @@ window.QUIZ_DATA = {
             {q:"哪一項是良好的飲食習慣？", options:["不吃早餐就上學","定時進食，不暴飲暴食","把全部剩菜倒進下水道玩"], a:1, why:"定時、適量進食較好。"},
             {q:"愛惜食物，我們應該？", options:["按需要取餐，能吃完的才拿","故意把飯菜掉滿地","只揀最貴的，其餘丟掉"], a:0, why:"按需要取餐，減少浪費。"},
             {q:"下面哪一組做法都有助健康飲食？", options:["多吃蔬果、少吃油炸零食、充足喝水","只吃炸雞、不吃菜、不喝水","用飲料代替所有正餐"], a:0, why:"蔬果、少油炸和充足喝水都有助健康。"}
+          ]
+        },
+        {
+          id: "gs-safety",
+          title: "家居安全",
+          questions: [
+            {q:"小熊看見插蘇冒煙，最適當的做法是？", options:["立即告訴家中大人","用濕手去拔插頭","拿玩具去碰一碰"], a:0, why:"電器有危險時要立即告訴大人，不要自己用手處理。"},
+            {q:"為什麼不可以用濕手觸摸電掣？", options:["水會導電，可能觸電","手會變得太乾淨","電掣會變成彩色"], a:0, why:"水會導電，濕手碰電掣容易觸電。"},
+            {q:"家中的藥物和清潔劑應該？", options:["放在小朋友拿不到的地方","放在飯桌上當飲品","倒進玩具杯裏玩"], a:0, why:"藥物和清潔劑要妥善存放，避免誤服。"},
+            {q:"在家中哪一種行為較安全？", options:["不在濕滑的地上奔跑","站在窗台上看風景","在爐邊玩紙飛機"], a:0, why:"濕滑地面容易滑倒；窗台和爐邊都很危險。"},
+            {q:"大人煮食時，小朋友應該？", options:["遠離火爐和熱鍋","伸手去摸熱鍋","在廚房追逐"], a:0, why:"火爐和熱鍋會燙傷人，要保持距離。"},
+            {q:"如果陌生人按門鐘，獨自在家的你應該？", options:["不開門，並聯絡家人","立即開門請他入屋","告訴他家中沒有大人"], a:0, why:"獨自在家時不給陌生人開門，並聯絡家人。"},
+            {q:"在香港遇到火警或緊急事故，應致電？", options:["999","123","888"], a:0, why:"香港的緊急求助電話是999。"},
+            {q:"下面哪一組都是家居安全的好習慣？", options:["用完剪刀放回原處、玩具不亂放在地上","把剪刀放在床上、玩具散滿樓梯","把頭伸出窗外、玩火柴"], a:0, why:"收好利器和玩具，可減少受傷。"}
           ]
         }
       ]
