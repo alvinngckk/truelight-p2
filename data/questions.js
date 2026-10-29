@@ -1,5 +1,5 @@
 window.QUIZ_DATA = {
-  updated: "2026-10-26",
+  updated: "2026-10-29",
   subjects: [
     {
       id: "chi",
@@ -197,6 +197,20 @@ window.QUIZ_DATA = {
             {q:"My mum cooks dinner. My dad ____ the dishes.", options:["washes","wash","washing"], a:0, why:"My dad + washes (present simple)."},
             {q:"Choose the odd one out (not a family member):", options:["cousin","brother","teacher"], a:2, why:"A teacher is not a family member."},
             {q:"Ben: \"I play chess with my grandpa on Sundays.\" When does Ben play chess?", options:["On Sundays.","Every morning.","Never."], a:0, why:"He says he plays on Sundays."}
+          ]
+        },
+        {
+          id: "eng-weather",
+          title: "Weather",
+          questions: [
+            {q:"It is sunny today. I can ____ a T-shirt.", options:["wear","wears","wearing"], a:0, why:"After can we use the base verb: wear."},
+            {q:"Look at the sky! There are many dark clouds. It is ____.", options:["cloudy","sunny","snowy"], a:0, why:"Dark clouds mean cloudy weather."},
+            {q:"\"____ is the weather like?\" \"It's rainy.\"", options:["What","How","Where"], a:0, why:"We ask What is the weather like?"},
+            {q:"I take an umbrella when it is ____.", options:["raining","hungry","noisy"], a:0, why:"An umbrella is for rain."},
+            {q:"In winter it is cold. We wear ____.", options:["a coat","shorts","flip-flops"], a:0, why:"A coat keeps us warm in cold weather."},
+            {q:"The sun is shining. The weather is ____.", options:["fine","windy and dark","wet"], a:0, why:"Sunshine usually means fine weather."},
+            {q:"Panda Pip: \"I like flying a kite.\" Which day is best?", options:["A windy day","A rainy day","A stormy night"], a:0, why:"Kites need wind."},
+            {q:"Choose the odd one out (not weather):", options:["sunny","cloudy","hungry"], a:2, why:"Hungry is a feeling, not weather."}
           ]
         }
       ]
@@ -397,6 +411,20 @@ window.QUIZ_DATA = {
             {q:"如果陌生人按門鐘，獨自在家的你應該？", options:["不開門，並聯絡家人","立即開門請他入屋","告訴他家中沒有大人"], a:0, why:"獨自在家時不給陌生人開門，並聯絡家人。"},
             {q:"在香港遇到火警或緊急事故，應致電？", options:["999","123","888"], a:0, why:"香港的緊急求助電話是999。"},
             {q:"下面哪一組都是家居安全的好習慣？", options:["用完剪刀放回原處、玩具不亂放在地上","把剪刀放在床上、玩具散滿樓梯","把頭伸出窗外、玩火柴"], a:0, why:"收好利器和玩具，可減少受傷。"}
+          ]
+        },
+        {
+          id: "gs-traffic",
+          title: "交通安全",
+          questions: [
+            {q:"過馬路前，應該先？", options:["停一停、望一望、聽一聽","閉上眼睛快跑","邊玩手機邊走"], a:0, why:"過馬路要先停、望、聽，確保安全。"},
+            {q:"斑馬線是給誰用的？", options:["行人過馬路","汽車比賽","放風箏"], a:0, why:"斑馬線是行人過馬路的地方。"},
+            {q:"紅燈亮起時，行人應該？", options:["停在路邊等候","立刻衝過馬路","跟着車走"], a:0, why:"紅燈要停下，綠燈才可以過。"},
+            {q:"坐小巴或巴士時，較安全的做法是？", options:["坐好並抓紧扶手","站在車門邊玩","把頭伸出窗外"], a:0, why:"坐好並抓好扶手，可避免跌倒。"},
+            {q:"為什麼不可以在馬路中央追逐？", options:["車輛往來，十分危險","馬路太安靜","會弄髒鞋子"], a:0, why:"馬路上有車輛，追逐很容易發生意外。"},
+            {q:"過馬路時，最好怎樣過？", options:["走斑馬線或行人過路處","從停着的車後面突然跑出","在彎位斜走"], a:0, why:"應使用斑馬線或行人過路處。"},
+            {q:"看見救護車響着警號駛近，行人應該？", options:["讓路，不要阻礙","站在路中間看熱鬧","跟着跑"], a:0, why:"緊急車輛需要通道，應讓路。"},
+            {q:"下面哪一組都是交通安全好習慣？", options:["過路用斑馬線、不在車廂內打鬧","紅燈時衝過、在馬路玩球","抓着車尾、把頭伸出窗外"], a:0, why:"用斑馬線過路、車上安靜坐好，都較安全。"}
           ]
         }
       ]
