@@ -1,5 +1,5 @@
 window.QUIZ_DATA = {
-  updated: "2026-11-02",
+  updated: "2026-11-05",
   subjects: [
     {
       id: "chi",
@@ -225,6 +225,20 @@ window.QUIZ_DATA = {
             {q:"The sun is shining. The weather is ____.", options:["fine","windy and dark","wet"], a:0, why:"Sunshine usually means fine weather."},
             {q:"Panda Pip: \"I like flying a kite.\" Which day is best?", options:["A windy day","A rainy day","A stormy night"], a:0, why:"Kites need wind."},
             {q:"Choose the odd one out (not weather):", options:["sunny","cloudy","hungry"], a:2, why:"Hungry is a feeling, not weather."}
+          ]
+        },
+        {
+          id: "eng-animals",
+          title: "Animals",
+          questions: [
+            {q:"A cat says ____. A dog says ____.", options:["moo / quack","meow / woof","roar / tweet"], a:1, why:"Cats meow; dogs woof (bark)."},
+            {q:"Pandas like to eat ____. Fish live in the ____.", options:["bamboo / water","ice cream / sky","bread / tree only"], a:0, why:"Pandas eat bamboo; fish live in water."},
+            {q:"There ____ three rabbits in the garden.", options:["is","are","am"], a:1, why:"three rabbits → are."},
+            {q:"A baby dog is a ____. A baby cat is a ____.", options:["puppy / kitten","cub / chick","lamb / calf"], a:0, why:"Baby dog = puppy; baby cat = kitten."},
+            {q:"Birds can ____. Fish can ____.", options:["fly / swim","swim / fly","drive / cook"], a:0, why:"Birds fly; fish swim."},
+            {q:"Little Bunny: \"I ____ a carrot every morning.\"", options:["eat","eats","eating"], a:0, why:"I + eat (present simple)."},
+            {q:"Choose the odd one out (not an animal):", options:["tiger","elephant","pencil"], a:2, why:"A pencil is not an animal."},
+            {q:"Which animal has a long neck?", options:["giraffe","mouse","frog"], a:0, why:"A giraffe has a long neck."}
           ]
         }
       ]
@@ -453,6 +467,20 @@ window.QUIZ_DATA = {
             {q:"過馬路時，最好怎樣過？", options:["走斑馬線或行人過路處","從停着的車後面突然跑出","在彎位斜走"], a:0, why:"應使用斑馬線或行人過路處。"},
             {q:"看見救護車響着警號駛近，行人應該？", options:["讓路，不要阻礙","站在路中間看熱鬧","跟着跑"], a:0, why:"緊急車輛需要通道，應讓路。"},
             {q:"下面哪一組都是交通安全好習慣？", options:["過路用斑馬線、不在車廂內打鬧","紅燈時衝過、在馬路玩球","抓着車尾、把頭伸出窗外"], a:0, why:"用斑馬線過路、車上安靜坐好，都較安全。"}
+          ]
+        },
+        {
+          id: "gs-eco",
+          title: "環保與資源",
+          questions: [
+            {q:"為什麼我們要節約用水？", options:["因為清水是寶貴的資源，不應浪費","因為水永遠用不完，所以不用理會","因為關掉水龍頭會弄壞水管"], a:0, why:"清水有限，節約用水是愛護資源。"},
+            {q:"離開課室時，看見燈還亮着，小勇士應該？", options:["把燈關掉，節約電力","讓燈繼續亮一整晚","把燈罩拆下來玩"], a:0, why:"不用燈時關掉，可節約電力。"},
+            {q:"哪一種做法最有助減少浪費？", options:["用紙的正反兩面書寫","每寫一個字就換一張新紙","把全新簿子撕來玩"], a:0, why:"雙面書寫可以減少用紙。"},
+            {q:"回收箱常見的分類包括？", options:["廢紙、塑膠、金屬等","只有玩具和糖果","只有泥土和石頭"], a:0, why:"香港常見回收紙張、塑膠和金屬等。"},
+            {q:"逛街買東西時，較環保的做法是？", options:["帶可重用購物袋，少用即棄膠袋","每次都要很多新膠袋","把膠袋丟進大海"], a:0, why:"可重用袋能減少即棄膠袋。"},
+            {q:"為什麼不要亂丟垃圾在郊外或海邊？", options:["會污染環境，傷害動植物","因為垃圾會自己消失","因為動物喜歡吃包裝紙"], a:0, why:"垃圾會污染環境並傷害生物。"},
+            {q:"夏天天氣很熱，節約電力又保持涼快，較好的做法是？", options:["適量開冷氣並關好門窗，或先用風扇","把冷氣開到最低又打開所有窗","整天開着所有電器不用管"], a:0, why:"適量用電、關好門窗較節約。"},
+            {q:"下面哪一組都是環保好習慣？", options:["節約水電、分類回收、少用即棄物品","長開水龍頭、亂丟垃圾、從不回收","把回收物全部扔進普通垃圾桶再跑開"], a:0, why:"節約、回收和少用即棄物都是環保行為。"}
           ]
         }
       ]
