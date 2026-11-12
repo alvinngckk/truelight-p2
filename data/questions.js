@@ -1,5 +1,5 @@
 window.QUIZ_DATA = {
-  updated: "2026-11-09",
+  updated: "2026-11-12",
   subjects: [
     {
       id: "chi",
@@ -253,6 +253,20 @@ window.QUIZ_DATA = {
             {q:"Little Bunny: \"I ____ a carrot every morning.\"", options:["eat","eats","eating"], a:0, why:"I + eat (present simple)."},
             {q:"Choose the odd one out (not an animal):", options:["tiger","elephant","pencil"], a:2, why:"A pencil is not an animal."},
             {q:"Which animal has a long neck?", options:["giraffe","mouse","frog"], a:0, why:"A giraffe has a long neck."}
+          ]
+        },
+        {
+          id: "eng-food",
+          title: "Food",
+          questions: [
+            {q:"I eat ____ apple and ____ banana.", options:["an / a","a / an","an / an"], a:0, why:"apple starts with a vowel sound → an; banana → a."},
+            {q:"Rice and noodles are ____. Milk and juice are ____.", options:["food / drinks","toys / books","drinks / food"], a:0, why:"Rice and noodles are food; milk and juice are drinks."},
+            {q:"Tom ____ ice cream, but I ____ apples.", options:["like / likes","likes / like","liking / like"], a:1, why:"Tom (he) + likes; I + like."},
+            {q:"There ____ a sandwich. There ____ three grapes.", options:["is / are","are / is","am / are"], a:0, why:"a sandwich → is; three grapes → are."},
+            {q:"Little Bunny: \"Can I have some ____, please? I am thirsty.\"", options:["a sock","water","a pencil"], a:1, why:"Thirsty means you want a drink, such as water."},
+            {q:"Which breakfast is healthier?", options:["lots of sweets only","milk and bread","cola and chocolate only"], a:1, why:"Milk and bread make a healthier breakfast than sweets or cola only."},
+            {q:"Choose the odd one out (not a food):", options:["rice","chair","fish"], a:1, why:"A chair is not a food."},
+            {q:"We buy bread at a ____. We eat lunch in the school ____.", options:["library / playground","clinic / gym","bakery / canteen"], a:2, why:"A bakery sells bread; many schools have a canteen for lunch."}
           ]
         }
       ]
@@ -509,6 +523,20 @@ window.QUIZ_DATA = {
             {q:"為什麼不要亂丟垃圾在郊外或海邊？", options:["會污染環境，傷害動植物","因為垃圾會自己消失","因為動物喜歡吃包裝紙"], a:0, why:"垃圾會污染環境並傷害生物。"},
             {q:"夏天天氣很熱，節約電力又保持涼快，較好的做法是？", options:["適量開冷氣並關好門窗，或先用風扇","把冷氣開到最低又打開所有窗","整天開着所有電器不用管"], a:0, why:"適量用電、關好門窗較節約。"},
             {q:"下面哪一組都是環保好習慣？", options:["節約水電、分類回收、少用即棄物品","長開水龍頭、亂丟垃圾、從不回收","把回收物全部扔進普通垃圾桶再跑開"], a:0, why:"節約、回收和少用即棄物都是環保行為。"}
+          ]
+        },
+        {
+          id: "gs-helpers",
+          title: "社區工作者",
+          questions: [
+            {q:"如果看見火警，小勇士應該怎樣做？", options:["立刻告訴大人並報警，讓消防員到場處理","自己衝進火場拿水撲救","先躲起來不要告訴任何人"], a:0, why:"小孩子應先告知大人並報警，由消防員處理，不可自行衝進火場。"},
+            {q:"醫生主要的工作是____；護士通常在____幫忙照顧病人。", options:["送郵件／郵局","診症治病／醫院或診所","修理水管／地盤"], a:1, why:"醫生負責診症治病，護士多在醫院或診所協助照顧病人。"},
+            {q:"在街上維持秩序、保護市民安全的是？", options:["麵包師傅","警察","售貨員"], a:1, why:"警察的工作包括維持秩序和保護市民安全。"},
+            {q:"小勇士在公園拾到一個錢包，較合適的做法是？", options:["交給附近的警察或管理員，不要自己拿走","先放進自己書包裏明天再說","把錢分給朋友"], a:0, why:"拾到他人物品應交給警察或管理員，不能據為己有。"},
+            {q:"郵差的主要工作是？", options:["在醫院替病人開藥","在火場救火","把信件和包裹送到市民手上"], a:2, why:"郵差負責派送信件和包裹。"},
+            {q:"為什麼我們要尊重清潔工人？", options:["他們保持街道和校園清潔，工作很重要","因為他們不用工作","因為垃圾會自己消失"], a:0, why:"清潔工人讓環境保持衛生，值得尊重和感謝。"},
+            {q:"牙齒痛應求醫於____；在學校教導我們的是____。", options:["消防員／郵差","牙醫／教師","廚師／司機"], a:1, why:"牙痛找牙醫；教師在學校教導學生。"},
+            {q:"下面哪一組配對全部正確？", options:["教師救火、郵差開刀、警察送餅","教師教書、醫生診症、消防員救火","護士送郵件、廚師抓小偷、牙醫駕駛巴士"], a:1, why:"教師教書、醫生診症、消防員救火都是正確配對。"}
           ]
         }
       ]
