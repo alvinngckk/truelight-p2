@@ -1,5 +1,5 @@
 window.QUIZ_DATA = {
-  updated: "2026-11-16",
+  updated: "2026-11-19",
   subjects: [
     {
       id: "chi",
@@ -281,6 +281,20 @@ window.QUIZ_DATA = {
             {q:"Which breakfast is healthier?", options:["lots of sweets only","milk and bread","cola and chocolate only"], a:1, why:"Milk and bread make a healthier breakfast than sweets or cola only."},
             {q:"Choose the odd one out (not a food):", options:["rice","chair","fish"], a:1, why:"A chair is not a food."},
             {q:"We buy bread at a ____. We eat lunch in the school ____.", options:["library / playground","clinic / gym","bakery / canteen"], a:2, why:"A bakery sells bread; many schools have a canteen for lunch."}
+          ]
+        },
+        {
+          id: "eng-clothes",
+          title: "Clothes",
+          questions: [
+            {q:"I wear a ____ on my head. I wear ____ on my feet.", options:["shoe / a hat","hat / shoes","sock / a dress"], a:1, why:"A hat goes on your head; shoes go on your feet."},
+            {q:"____ is my coat. ____ are my gloves.", options:["These / This","This / These","These / These"], a:1, why:"One coat → This is; two or more gloves → These are."},
+            {q:"Sam ____ a yellow raincoat. I ____ a green jacket.", options:["wear / wears","wears / wear","wearing / wear"], a:1, why:"Sam (he) + wears; I + wear."},
+            {q:"When it is cold, I put on a ____. When it is rainy, I put on a ____.", options:["swimsuit / cap","coat / raincoat","sunglasses / sandals"], a:1, why:"A coat keeps you warm; a raincoat keeps you dry."},
+            {q:"Little Bunny: \"I put on my ____ first, then I put on my shoes.\"", options:["socks","a school bag","an umbrella"], a:0, why:"We usually put on socks before shoes."},
+            {q:"She is wearing ____ orange dress and ____ blue hat.", options:["a / an","an / a","an / an"], a:1, why:"orange starts with a vowel sound → an; blue hat → a."},
+            {q:"Choose the odd one out (not a piece of clothing):", options:["dress","trousers","banana"], a:2, why:"A banana is food, not clothing."},
+            {q:"It is hot now. I should ____ my thick coat.", options:["put on","take off","eat"], a:1, why:"When it is hot, we take off a thick coat, not put it on."}
           ]
         }
       ]
@@ -565,6 +579,20 @@ window.QUIZ_DATA = {
             {q:"為什麼我們要尊重清潔工人？", options:["他們保持街道和校園清潔，工作很重要","因為他們不用工作","因為垃圾會自己消失"], a:0, why:"清潔工人讓環境保持衛生，值得尊重和感謝。"},
             {q:"牙齒痛應求醫於____；在學校教導我們的是____。", options:["消防員／郵差","牙醫／教師","廚師／司機"], a:1, why:"牙痛找牙醫；教師在學校教導學生。"},
             {q:"下面哪一組配對全部正確？", options:["教師救火、郵差開刀、警察送餅","教師教書、醫生診症、消防員救火","護士送郵件、廚師抓小偷、牙醫駕駛巴士"], a:1, why:"教師教書、醫生診症、消防員救火都是正確配對。"}
+          ]
+        },
+        {
+          id: "gs-senses",
+          title: "五官與感覺",
+          questions: [
+            {q:"我們用哪一個器官來看圖畫？", options:["耳朵","眼睛","鼻子"], a:1, why:"眼睛負責觀看。"},
+            {q:"聽到老師說話，主要靠____；分辨食物味道，主要靠____。", options:["眼睛／手","耳朵／舌頭","鼻子／耳朵"], a:1, why:"聽覺靠耳朵，味覺主要靠舌頭。"},
+            {q:"哪一項主要是鼻子的功能？", options:["看見顏色","聽見鈴聲","嗅到花香"], a:2, why:"鼻子用來嗅氣味。"},
+            {q:"小勇士用手摸冰塊，較可能有什麼感覺？", options:["冰冰涼涼","熱熱辣辣","香香甜甜"], a:0, why:"手和皮膚可以感到冷熱、軟硬；冰塊是涼的。"},
+            {q:"過馬路時，為什麼既要看，也要聽？", options:["因為看和聽都能幫助發現來車，更加安全","因為耳朵可以看見汽車","因為不用再看交通燈"], a:0, why:"眼睛看燈和來車，耳朵聽汽車聲，兩種感覺一起用會更安全。"},
+            {q:"保護眼睛較合適的做法是？", options:["在很暗的地方長時間看書","看電子屏幕時常常休息，並保持適當距離","用髒手大力揉眼睛"], a:1, why:"用眼要休息和保持距離；不要在過暗的地方長時間看，也不要用髒手揉眼。"},
+            {q:"哪一組配對全部正確？", options:["眼睛看、耳朵聽、鼻子嗅、舌頭嚐、皮膚感覺冷熱","眼睛聽、耳朵看、鼻子嚐、舌頭嗅、皮膚唱歌","眼睛嗅、耳朵嚐、鼻子看、舌頭聽、皮膚飛翔"], a:0, why:"視覺靠眼睛，聽覺靠耳朵，嗅覺靠鼻子，味覺靠舌頭，觸覺靠皮膚。"},
+            {q:"以下哪一項「不正確」？", options:["用硬物用力挖耳朵是危險的","巨大的聲響可能傷害聽覺","越靠近喇叭大聲聽歌，對耳朵越好"], a:2, why:"過大或過近的聲音會傷害耳朵，並不是越大越好。"}
           ]
         }
       ]
